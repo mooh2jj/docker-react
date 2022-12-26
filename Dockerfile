@@ -5,16 +5,12 @@ WORKDIR /app
 COPY . .
 RUN    npm install
 
-EXPOSE 3000
+RUN npm run build
 
-CMD ["npm", "start"]
+FROM nginx:alpine
 
-# RUN yarn build
+WORKDIR /usr/share/nginx/html
 
-# FROM nginx:alpine
+COPY --from=builder /app/build .
 
-# WORKDIR /usr/share/nginx/html
-
-# COPY --from=builder /app/build .
-
-# CMD [ "nginx", "-g", "daemon off;" ]
+CMD [ "nginx", "-g", "daemon off;" ]
