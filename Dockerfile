@@ -6,7 +6,7 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["yarn", "start"]
+CMD ["npm", "start"]
 
 # RUN yarn build
 
