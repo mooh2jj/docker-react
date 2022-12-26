@@ -3,7 +3,8 @@ FROM node:16-alpine AS builder
 WORKDIR /app
 
 COPY . .
-RUN    npm install
+# RUN npm install --slient
+RUN npm install -g npm@9.2.0    
 
 RUN npm run build
 
