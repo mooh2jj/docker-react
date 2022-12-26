@@ -1,19 +1,19 @@
-FROM node:16-alpine AS builder
+FROM node:16-alpine
 
 WORKDIR /app
 
 COPY . .
 
-# EXPOSE 3000
+EXPOSE 3000
 
-# CMD ["yarn", "start"]
+CMD ["yarn", "start"]
 
-RUN yarn build
+# RUN yarn build
 
-FROM nginx:alpine
+# FROM nginx:alpine
 
-WORKDIR /usr/share/nginx/html
+# WORKDIR /usr/share/nginx/html
 
-COPY --from=builder /app/build .
+# COPY --from=builder /app/build .
 
-CMD [ "nginx", "-g", "daemon off;" ]
+# CMD [ "nginx", "-g", "daemon off;" ]
